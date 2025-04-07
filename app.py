@@ -84,6 +84,9 @@ ax.set_ylabel("Net Arbitrage Profit ($/MMBtu)")
 ax.set_title("Arbitrage Predictions Over Time")
 ax.legend()
 ax.grid(True)
+q1 = filtered_df["Net_Arb_Profit"].quantile(0.01)
+q99 = filtered_df["Net_Arb_Profit"].quantile(0.99)
+ax.set_ylim(q1, q99)
 st.pyplot(fig)
 
 # 4. Optional: Show feature importances
